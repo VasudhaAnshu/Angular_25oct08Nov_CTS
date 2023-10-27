@@ -1,0 +1,17 @@
+<section class="welcome">
+    <h3>Data binding Demo</h3>
+
+    <p>Hai <strong>{{firstName +" " + lastName}}</strong>! Welcoem to my angular spa!</p>
+
+    <form>
+        <div>
+            <label>First Name:</label>
+            <input type="text" name="tb1" [(ngModel)]="firstName" />
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <input type="text" name="tb2" [(ngModel)]="lastName" />
+        </div>
+        
+    </form>
+</section>

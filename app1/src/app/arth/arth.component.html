@@ -1,0 +1,23 @@
+<section class="arth">
+    <h3>Aritmetic Example</h3>
+
+    <form>
+        <div>
+            <label>First Operand:</label>
+            <input type="number" name="tb1" [(ngModel)]="operand1" />
+        </div>
+        <div>
+            <label>Second Operand:</label>
+            <input type="number" name="tb2" [(ngModel)]="operand2" />
+        </div>
+    </form>
+
+    <div>
+        <p>Sum : {{operand1+operand2}}</p>
+        <p>Difference : {{operand1-operand2}}</p>
+        <p>Product : {{operand1*operand2}}</p>
+        <p>Quitont : {{operand1/operand2}}</p>
+        <p>Reminder : {{operand1%operand2}}</p>
+    </div>
+</section>
+
