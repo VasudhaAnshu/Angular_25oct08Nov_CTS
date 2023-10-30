@@ -1,0 +1,25 @@
+<div>
+    <img 
+        [src]="logos[logoIndex]"
+        (click)="changeLogo()"
+        [style.width.px]="logoWidth"
+        [class.bordered]="applyBordered"
+        [class.centered]="applyCentered"
+        />
+</div>
+
+<form>
+    <div>
+        <label>Image Width: </label>
+        <input type="range" name="iw" min="100" max="500" [(ngModel)]="logoWidth" /> {{logoWidth}} px.
+    </div>    
+    <div>
+        <label>
+            <input type="checkbox" name="ch1" [(ngModel)]="applyBordered" /> Apply Border Style
+        </label>
+        <label>
+            <input type="checkbox" name="ch2" [(ngModel)]="applyCentered" /> Apply Center Style
+        </label>
+        
+    </div>
+</form>

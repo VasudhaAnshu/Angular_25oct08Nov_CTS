@@ -1,0 +1,15 @@
+<h3>My Friends List</h3>
+
+<ol *ngIf="myFriends && myFriends.length>0">
+    <li *ngFor="let f of myFriends"> {{f}} </li>
+</ol>
+
+<p *ngIf="!myFriends || myFriends.length===0">
+    <strong>No friends added yet!</strong>
+</p>
+
+<form>
+    <input type="text" name="txt" [(ngModel)]="friendName" />
+    <button type="button" class="btn btn-sm btn-primary" (click)="add()">ADD</button>
+    <button type="button" class="btn btn-sm btn-danger" (click)="removeAll()">CLEAR</button>
+</form>

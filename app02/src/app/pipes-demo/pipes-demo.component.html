@@ -1,0 +1,45 @@
+
+<div class="row">
+    <div class="col">
+        <h3>String Related Pipes</h3>
+
+        <p>{{str|uppercase}}</p>
+        <p>{{str|lowercase}}</p>
+        <p>{{str|titlecase}}</p>
+        
+        <h3>Number Pipe</h3>
+        
+        <p>{{num}}</p>
+        <p>{{num|number:"5.0-0"}}</p>
+        <p>{{num|number:"5.2-6"}}</p>
+        <p>{{num|number:"8.2-2"}}</p>        
+
+        <h3>Custom Pipe</h3>
+
+        <p>{{num|inWords}}</p>
+    </div>
+
+    <div class="col">
+        <h3>Currency Pipe</h3>
+        
+        <p>{{num}}</p>
+        <p>{{num|currency:"INR"}}</p>        
+        <p>{{num|currency:"USD"}}</p>        
+        <p>{{num|currency:"AUD"}}</p>        
+        <p>{{num|currency:"GBP"}}</p>        
+        <p>{{num|currency:"JPY"}}</p>        
+        <p>{{num|currency:"XYZ"}}</p>        
+    </div>
+
+    <div class="col">
+        <h3>Date Pipe</h3>
+        
+        <p>{{dt|date:"short"}}</p>        
+        <p>{{dt|date:"long"}}</p>        
+        <p>{{dt|date:"dd"}}</p>        
+        <p>{{dt|date:"dd-MM-yy"}}</p>        
+        <p>{{dt|date:"dd-MMM-yyyy"}}</p>        
+        <p>{{dt|date:"dd-MMMM-yyyy hh:mm:ss aa"}}</p>        
+        <p>{{dt|date:"dd-MMMM-yyyy HH:mm:ss"}}</p>             
+    </div>
+</div>
