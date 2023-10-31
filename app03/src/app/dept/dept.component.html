@@ -1,0 +1,38 @@
+<section class="col-sm-9 m-2 mx-auto">
+    <h4>Departments List</h4>
+
+    <div class="row border-bottom border-danger fw-bold text-center p-2">
+        <div class="col-sm-2">Dept#</div>
+        <div class="col">Title</div>
+        <div class="col">Location</div>
+        <div class="col-sm-2">Action</div>
+    </div>
+
+    <form class="row border-bottom border-primary p-2" (ngSubmit)="add()">
+        <div class="col-sm-2 text-end">{{dept.id}}</div>
+        <div class="col">
+            <input type="text" name="tb1" [(ngModel)]="dept.title" class="form-control" />
+        </div>
+        <div class="col">
+            <input type="text" name="tb2" [(ngModel)]="dept.location" class="form-control" />
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-sm btn-primary">ADD</button>
+        </div>
+    </form>    
+
+    <div class="alert alert-info p-2 fw-bold" *ngIf="!depts || depts.length===0">
+        <p>No Records To Display</p>
+    </div>
+
+    <ng-container *ngIf="depts && depts.length>0">
+        <div class="row border-bottom border-primary p-2" *ngFor="let d of depts">
+            <div class="col-sm-2 text-end">{{d.id}}</div>
+            <div class="col">{{d.title}}</div>
+            <div class="col">{{d.location}}</div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-sm btn-danger" (click)="remove(d.id)">DELETE</button>
+            </div>
+        </div>    
+    </ng-container>
+</section>

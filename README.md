@@ -257,6 +257,117 @@ Angular
 
             One-Way Data Binding
                 Attribute Binding
+
+                    <element [attribute]="field"> </element>
+
                 Event Binding
+
+                    <element (eventDirective)="method()"> </element>
+
+                    html-event      eventDirective
+                     onSubmit           ngSubmit
+                     onClick            click
+                     onBlur             blur
+                     onfocus            focus
+                     onChange           change
+                                        ....etc.,
+
                 Style Binding
+
+                    <element [style.cssProperty]="field"> </element>
+
                 Css Class Binding
+
+                    <element [class.className]="booleanField"> </element>
+
+    Integrating Bootstrap With Angular
+
+        1. install the library
+
+            npm i bootstrap --save
+
+        2. refer to the library
+
+            angular.json
+                | - styles          include the node_modules/bootstrap/dist/css/bootstrap.min.css
+                | - scripts         include the node_modules/bootstrap/dist/js/bootstrap.min.js
+
+    Angular  Directives
+
+        An angular defined attribute is a Attribute Directive
+
+        inbuilt - directives
+
+            Structural Directives
+
+                *ngIf
+                *ngFor
+                ngSwitch *ngCase *ngDefault
+
+            Event Directives
+            Misc Directives
+
+        custom directives
+
+            @Diorective({
+                selector:"",
+                providers:[]
+            })
+            class CheckStockTypeDirective {}
+
+    Angular Pipes
+
+        a pipe is a tranformet that transforms a given value into soemthing elese before it is rendered.
+
+        {{value|pipeName:"pipe-inputs"}}
+
+        inbuilt pipes
+
+            lowercase
+            uppercase
+            titlecase
+            number
+            currency
+            date
+            async
+            json
+
+        custom pipes
+
+            @Pipe({
+                name:"",
+                providers:[]
+            })
+            class IntoWordsPipe implements Transformer {
+                transform(value):any {
+                    //....
+                }
+            }
+
+    Angular Model
+
+        the modles are represented by typescript interfaces.
+
+        the typescript interfaces can have fields.
+
+        any javascript/typescript object that has the fields declared in the interface is
+        supposed to an object of that interface type.
+
+    Angular Service
+
+        services are used to hold bussiness logic likle, any compuations or any rest-api communication ..etc.,
+
+        Angular Services are injectables meaning, that an object of the service is supplied into any site where
+        it is requested.
+
+            @Injectable({
+                providedIn:"root"
+            })
+            export class EmployeeService {
+
+            }
+
+            constructor(empService:EmployeeService){
+                //the empService is injected...
+            }
+
