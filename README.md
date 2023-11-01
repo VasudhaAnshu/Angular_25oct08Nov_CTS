@@ -371,3 +371,18 @@ Angular
                 //the empService is injected...
             }
 
+    Inter Componnet Communication - Parent/Child Component Communication
+
+        html
+        |-body
+            |-app-root
+                |-app-dept
+                    |-app-dept-form
+                    |-app-dept-details
+
+        1. a parent can pass data to a child component through attribute-binding
+            the child component must have an attribute
+            a field of the child component if marked as @Input() it becomes an attribute.
+
+        2. a child can emit an event and parent can handle the event thorugh EventEmitter
+                the event emitter are exposed using @Output() decorator.

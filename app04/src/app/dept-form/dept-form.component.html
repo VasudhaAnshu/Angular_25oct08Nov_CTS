@@ -1,0 +1,13 @@
+<form class="row border-bottom border-primary p-2" (ngSubmit)="notifyFormSubmitted()">
+    <div class="col-sm-2 text-end">{{dept.id}}</div>
+    <div class="col">
+        <input type="text" name="tb1" [(ngModel)]="dept.title" class="form-control" />
+    </div>
+    <div class="col">
+        <input type="text" name="tb2" [(ngModel)]="dept.location" class="form-control" />
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-sm btn-primary me-2">{{dept.isEditable?"SAVE":"ADD"}}</button>
+        <button class="btn btn-sm btn-danger" type="button" (click)="cancelBtnClicked()">{{dept.isEditable?"CANCEL":"CLEAR"}}</button>
+    </div>
+</form>    
