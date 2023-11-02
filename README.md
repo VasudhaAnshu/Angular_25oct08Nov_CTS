@@ -386,3 +386,75 @@ Angular
 
         2. a child can emit an event and parent can handle the event thorugh EventEmitter
                 the event emitter are exposed using @Output() decorator.
+
+    Angular Forms
+
+        Template Driven Forms
+
+            1. the form is defined and structured in html - component template.
+            2. these forms are hard to test as everything lies as a mark-up.
+            3. Thee forms have controls bound to the field of the component. And hence they have a single source of data.
+
+
+            FormsModule from '@angular/forms'
+
+                ngForm              valid,invalid
+                ngModel             valid,invalid,prestine,dirty,touched,untouched
+
+                all html 5 form validation attributes work with this api.
+
+        Model Driven Forms / Reactive forms
+
+            1. The form is defined in the component class (programatically)
+            2. The form is structured in html - componenet template.
+            3. These forms are easy to test , as they are defiend in typescript.
+            4. These forms have the data managed in the form controls and hence need no additional field to bind.
+            5. These forms can handle complex senarios like nested forms ..etc.,
+
+            ReactiveFormsModule from '@angular/forms'
+
+                FormGroup           valid,invalid
+                FormControl         valid,invalid,prestine,dirty,touched,untouched
+
+                formControlName
+
+                Validators from Validators class 
+
+    Angular Routing
+
+        allows us to map a path to each component , so that as and when that path comes up in the url, the mapped
+        component appears on the screen.
+
+        RoutingModule       from  '@angular/routing'
+
+            Route               {
+                                    path:'abcd',
+                                    pathMatch:'startsWith|full',
+                                    component:'DashboardComponent',
+                                    children:[],
+                                    redirectTo:''
+                                }
+
+            Routes              Route[]
+
+            forRoot()           is a method of RoutingModule used to register the routes created.
+
+            Router              is a service used for navigating programatically.
+                                navigate(['pathSegment1','pathSegment2','']),
+                                navigateByUrl('completeUrl')
+
+                                        http://localhost:9999/sales/offers/expiredCupons
+
+                                        navigate(['/sales','/offers','/expiredCupons']),
+                                        navigateByUrl(/sales/offers/expiredCupons)
+
+            ActivtedRoute       is a service used to extract queryParameters or pathParameters or url detials of
+                                the current url.
+
+            routerLink          is a directive to be used on 'a' tag instead of its 'href' attribute.
+
+            routerActiveLink    is a directive of 'a' tag that accepts a css-class to be applied when the 'a' tag is active.
+
+            router-outlet       is a component, that reserves place for a routed-component in the top-level component template.
+
+            

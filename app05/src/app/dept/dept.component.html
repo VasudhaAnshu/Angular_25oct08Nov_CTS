@@ -1,0 +1,20 @@
+<section class="col-sm-9 m-2 mx-auto">
+    <h4>Departments List</h4>
+
+    <app-dept-header></app-dept-header>
+
+    <app-dept-form (formSubmitted)="add($event)"></app-dept-form>
+
+    <div class="alert alert-info p-2 fw-bold" *ngIf="!depts || depts.length===0">
+        <p>No Records To Display</p>
+    </div>
+
+    <ng-container *ngIf="depts && depts.length>0">
+        <ng-container *ngFor="let d of depts">
+            <app-dept-details *ngIf="!d.isEditable" [dept]="d" (delBtnClick)="remove($event)"
+                (editBtnClick)="markEditable($event)"></app-dept-details>
+            <app-dept-form *ngIf="d.isEditable" [dept]="{id:d.id,title:d.title,location:d.location,isEditable:true}"
+                (formSubmitted)="update($event)" (cancelEditable)="unMarkEditable($event)"></app-dept-form>
+        </ng-container>
+    </ng-container>
+</section>
