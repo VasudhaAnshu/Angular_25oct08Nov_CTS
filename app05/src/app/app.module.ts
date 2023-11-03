@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
@@ -15,7 +15,8 @@ const routes : Routes = [
   {path:'',pathMatch:'full',redirectTo:'/depts'},
   {path:'depts',component:DeptComponent},
   {path:'emps',component:EmpComponent},
-  {path:'newEmp',component:EmpFormComponent}
+  {path:'newEmp',component:EmpFormComponent},
+  {path:'editEmp/:id',component:EmpFormComponent}
 ];
 
 @NgModule({
@@ -31,6 +32,7 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

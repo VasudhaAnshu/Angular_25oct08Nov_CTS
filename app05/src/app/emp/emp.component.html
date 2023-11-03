@@ -23,6 +23,7 @@
                 <th>Salary</th>
                 <th>Mobile</th>
                 <th>Mail Id</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,10 @@
                 <td>{{e.salary|currency:"INR"}}</td>
                 <td>{{e.mobile}}</td>
                 <td>{{e.mailId}}</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary me-1" [routerLink]="['/editEmp',e.id]">EDIT</a>
+                    <button type="button" class="btn btn-sm btn-danger" (click)="remove(e.id)">DELETE</button>
+                </td>
             </tr>
         </tbody>
     </table>

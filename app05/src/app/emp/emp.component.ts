@@ -33,4 +33,11 @@ export class EmpComponent {
       this.empService.getAll():
       this.empService.getAllByDept(this.currentDeptId);
   }
+
+  remove(id:number){
+    if(window.confirm(`Are you sure of deleting emp#${id}?`)){
+      this.empService.deleteById(id);
+      this.loadEmpsByDept();
+    }
+  }
 }
