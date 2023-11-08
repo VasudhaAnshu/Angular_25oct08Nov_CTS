@@ -457,4 +457,92 @@ Angular
 
             router-outlet       is a component, that reserves place for a routed-component in the top-level component template.
 
-            
+    Angular Component / Directive Life Cycle Hooks
+
+        ngOnChanges()	
+            Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values. Called before ngOnInit() and whenever one or more data-bound input properties change.
+
+        ngOnInit()	
+            Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties. Called once, after the first ngOnChanges().
+
+        ngDoCheck()	
+            Detect and act upon changes that Angular can't or won't detect on its own. Called during every change detection run, immediately after ngOnChanges() and ngOnInit().
+
+        ngOnDestroy	
+            Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks. Called just before Angular destroys the directive/component.
+
+
+        constructor()
+            |
+            |- the template is rendered (component appers on the screen)
+                        |- ngOnChanges
+                                |-ngOnInit()
+                                    |-ngDocheck()
+
+                                        //while the component is in action, if any chagnes occur to input-props again
+                                                |- ngOnChanges()
+                                                        |- ngDocheck()
+                                                    
+
+                                                                |- ngOnDestroy()
+
+    Observables from RxJS
+
+        ReactiveJavaScript is a library used for reactive programming in JavaScript
+
+        Observable is enhanced Promise, that is capable of
+            1. receiving intermidate results from the async task
+            2. receiving errors from the async task
+            3. receiving the completion signal from the async task
+
+        let 1backgroundJob = (observer:Observer) => {
+
+            observer.next(); //is used to emit intermidate results 
+            observer.error(); //is used to raise an error
+            observer.complete(); //is used to signal that the job is done.
+
+
+        };
+
+        let ob : Observable = new Observable(backgroundJob);
+
+        ob.subscribe({
+            next: val => { /* receives the emitted value */ },
+            error: err => { /* receives the raised error */ },
+            complete: () => { /* respond to the job completion */ }
+        }); //the backgroundJob gets invoked
+
+    HttpClient
+
+        @angular/commons/http
+            HttpClientModule
+                HttpClient
+
+                    get(url):Observable
+                    put(url,reqBody):Observable
+                    post(url,reqBody):Observable
+                    delete(url):Observable
+
+    Json-Server
+
+        is a fake rest-apiu provider.
+
+        it takes a  .json file of hypothetical data, and provides rest-api out of it.
+
+        This is designed to support spa-framework learners to experiment on rest-api communication.
+
+        we cannot use this tool for rela time rest-api as it is not going provide
+        any performentce or encryption standards. But is a good tool to simulate a real time rest api.
+
+        Stesp to create a json-server is
+
+            md hr-api
+            cd hr-api
+            npm init -y
+            npm i json-server --save
+
+            create a data.json in the project root and put some hypothetical data in it.
+
+            'json-server --port 8888 --watch ./data.json'
+
+            will launch the server for us.

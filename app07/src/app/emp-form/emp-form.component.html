@@ -1,0 +1,67 @@
+<section class="col-sm-4 m-2 p-4 mx-auto">
+    <h4> {{isEditing?"Edit":"New"}} Employee</h4>
+
+    <div class="alert alert-danger p-2 fw-bold" *ngIf="errMsg">
+        <p>{{errMsg}}</p>
+    </div>
+
+    <form [formGroup]="empForm" (ngSubmit)="formSubmitted()" *ngIf="!errMsg && depts">
+        <div class="form-control-group">
+            <label>Employee Id</label>
+            <input type="number" formControlName="id" readonly class="form-control" />
+        </div>
+        <div class="form-control-group">
+            <label>Full Name</label>
+            <input type="text" formControlName="fullName" class="form-control" />
+            <ul class="fst-italic text-danger" *ngIf="fullNameFC.invalid && (fullNameFC.touched || fullNameFC.dirty)">
+                <li *ngIf="fullNameFC.errors!['required']">This is a mandatory field</li>
+                <li *ngIf="fullNameFC.errors!['minlength']">Full Name must be atleast 5 chars in length</li>
+                <li *ngIf="fullNameFC.errors!['maxlength']">Full Name must be atmax 30 chars in length</li>
+            </ul>
+        </div>
+        <div class="form-control-group">
+            <label>Mobile</label>
+            <input type="text" formControlName="mobile" class="form-control" />
+            <ul class="fst-italic text-danger" *ngIf="mobileFC.invalid && (mobileFC.touched || mobileFC.dirty)">
+                <li *ngIf="mobileFC.errors!['required']">This is a mandatory field</li>
+                <li *ngIf="mobileFC.errors!['pattern']">Mobile number must be a 10 digit number.</li>
+            </ul>
+        </div>
+        <div class="form-control-group">
+            <label>Mail Id</label>
+            <input type="text" formControlName="mailId" class="form-control" />
+            <ul class="fst-italic text-danger" *ngIf="mailIdFC.invalid && (mailIdFC.touched || mailIdFC.dirty)">
+                <li *ngIf="mailIdFC.errors!['required']">This is a mandatory field</li>
+                <li *ngIf="mailIdFC.errors!['email']">A valid email id is expected.</li>
+            </ul>
+        </div>
+        <div class="form-control-group">
+            <label>Salary</label>
+            <input type="number" formControlName="salary" class="form-control" />
+            <ul class="fst-italic text-danger" *ngIf="salaryFC.invalid && (salaryFC.touched || salaryFC.dirty)">
+                <li *ngIf="salaryFC.errors!['required']">This is a mandatory field</li>
+                <li *ngIf="salaryFC.errors!['min']">the minimum salary is 10000.</li>
+            </ul>
+        </div>
+        <div class="form-control-group">
+            <label>Join Date</label>
+            <input type="date" formControlName="joinDate" class="form-control" />
+            <ul class="fst-italic text-danger" *ngIf="joinDateFC.invalid && (joinDateFC.touched || joinDateFC.dirty)">
+                <li>This is a mandatory field</li>
+            </ul>
+        </div>
+        <div class="form-control-group">
+            <label>Department</label>
+            <select formControlName="deptId" class="form-control">
+                <option *ngFor="let d of depts" [ngValue]="d.id">{{d.title}}</option>
+            </select>
+            <ul class="fst-italic text-danger" *ngIf="deptIdFC.invalid && (deptIdFC.touched || deptIdFC.dirty)">
+                <li>This is a mandatory field</li>
+            </ul>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary mt-1" [disabled]="empForm.invalid">SAVE</button>
+        </div>
+    </form>    
+    
+</section>

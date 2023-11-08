@@ -1,0 +1,85 @@
+{
+  "depts": [
+    {
+      "id": 101,
+      "title": "HR",
+      "location": "DELHI"
+    },
+    {
+      "id": 102,
+      "title": "ACCOUNTS",
+      "location": "MUMBAI"
+    },
+    {
+      "id": 103,
+      "title": "FINANCE",
+      "location": "PUNE"
+    },
+    {
+      "id": 104,
+      "title": "OPERATIONS",
+      "location": "HYDERABAD"
+    },
+    {
+      "id": 105,
+      "title": "DELIVERY",
+      "location": "VIZAG"
+    }
+  ],
+  "emps": [
+    {
+      "id": 1,
+      "fullName": "Vamsy Kiran",
+      "mobile": "9052224753",
+      "mailId": "vamsy@gmail.com",
+      "salary": 65000,
+      "joinDate": "2023-01-01",
+      "deptId": 101
+    },
+    {
+      "id": 2,
+      "fullName": "Suseela",
+      "mobile": "9052224752",
+      "mailId": "suseela@gmail.com",
+      "salary": 75000,
+      "joinDate": "2023-02-01",
+      "deptId": 101
+    },
+    {
+      "id": 3,
+      "fullName": "Sagar",
+      "mobile": "9052224754",
+      "mailId": "sagar@gmail.com",
+      "salary": 55000,
+      "joinDate": "2023-01-01",
+      "deptId": 102
+    },
+    {
+      "id": 4,
+      "fullName": "Gowri Saradha",
+      "mobile": "9052224755",
+      "mailId": "saradha@gmail.com",
+      "salary": 85000,
+      "joinDate": "2023-02-01",
+      "deptId": 102
+    },
+    {
+      "id": 5,
+      "fullName": "Indhikaa Valli",
+      "mobile": "9052224756",
+      "mailId": "indhikaa@gmail.com",
+      "salary": 45000,
+      "joinDate": "2023-01-01",
+      "deptId": 103
+    },
+    {
+      "id": 6,
+      "fullName": "Prakash Varma",
+      "mobile": "8888888888",
+      "mailId": "prakash@gmail.com",
+      "salary": 67800,
+      "joinDate": "2023-11-08",
+      "deptId": 103
+    }
+  ]
+}

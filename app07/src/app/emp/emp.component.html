@@ -1,0 +1,52 @@
+<section class="col-sm-10 m-2 mx-auto">
+    <h4>Employees List</h4>
+
+    <form class="card card-border card-primary mt-4 mb-4 p-4 fw-bold" *ngIf="depts && depts.length>0">
+        <div>
+            <label>Filter By Department: </label>
+            <select name="dchoice" [(ngModel)]="currentDeptId" (change)="loadEmpsByDept()">
+                <option *ngFor="let d of depts" [ngValue]="d.id">{{d.title}}</option>
+            </select>
+        </div>
+    </form>
+
+    <div class="alert alert-info p-2 fw-bold" *ngIf="!emps && !errMsg">
+        <p>Please wait while loading data..!</p>
+    </div>
+
+    <div class="alert alert-danger p-2 fw-bold" *ngIf="errMsg">
+        <p>{{errMsg}}</p>
+    </div>
+    
+    <div class="alert alert-info p-2 fw-bold" *ngIf="emps && emps.length===0">
+        <p>No Records To Display</p>
+    </div>
+    
+    <table *ngIf="emps && emps.length>0" class="table table-border table-striped">
+        <thead>
+            <tr>
+                <th>Emp#</th>
+                <th>Full Name</th>
+                <th>Join Date</th>
+                <th>Salary</th>
+                <th>Mobile</th>
+                <th>Mail Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of emps">
+                <td class="text-end">{{e.id}}</td>
+                <td>{{e.fullName|uppercase}}</td>
+                <td>{{e.joinDate|date:'dd-MMM-yyyy'}}</td>
+                <td>{{e.salary|currency:"INR"}}</td>
+                <td>{{e.mobile}}</td>
+                <td>{{e.mailId}}</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary me-1" [routerLink]="['/editEmp',e.id]">EDIT</a>
+                    <button type="button" class="btn btn-sm btn-danger" (click)="remove(e.id)">DELETE</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
